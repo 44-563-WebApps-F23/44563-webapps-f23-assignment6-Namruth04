@@ -1,41 +1,84 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Author entry</title>
-    </head>
-    <body>
-        <h1>Author entry Namruth</h1>
-        <form>
-            <label for="Author"> The hidden author name</label>
-            <input type="password" id="Author" value="Dickens">
-            <label for="Guess">Guess the author</label>
-            <input type="text" id="Guess">
-            <input type="button" value="Check the guess" onclick="checkAuthor()">
-            <div>Good Score:<spen id="good"></spen></div>
-            <div>Oops Score:<spen id="oops"></spen></div>
-        </form>
-        <script>
-            var good=0;
-            var oops=0;
-            function checkAuthor(){
-                var author=document.getElementById("Author");
-                var guess=document.getElementById("Guess");
-                var a=author.value;
-                var b=guess.value;
-                if (a==b)
-                {
-                    good++;
-                    alert("You got it right!");
-                }
-                else{
-                    oops++;
-                    alert("Sorry");
-                }
-                document.getElementById("good").innerHTML=good;
-                document.getElementById("oops").innerHTML=oops;
+
+<head>
+    <title>Author entry</title>
+</head>
+
+<body>
+    <h1>Author entry Namruth</h1>
+    <form>
+        <label for="Author"> The hidden author name</label>
+        <input type="password" id="Author" value="Dickens">
+        <label for="Guess">Guess the author</label>
+        <input type="text" id="Guess">
+        <input type="button" value="Check the guess" onclick="checkAuthor()">
+        <div>Good Score:<spen id="good"></spen>
+        </div>
+        <div>Oops Score:<spen id="oops"></spen>
+        </div>
+    </form>
+    <script>
+        var good = 0;
+        var oops = 0;
+        function checkAuthor() {
+            var author = document.getElementById("Author");
+            var guess = document.getElementById("Guess");
+            var a = author.value;
+            var b = guess.value;
+            if (a == b) {
+                good++;
+                alert("You got it right!");
             }
+            else {
+                oops++;
+                alert("Sorry");
+            }
+            document.getElementById("good").innerHTML = good;
+            document.getElementById("oops").innerHTML = oops;
+        }
+    </script>
+
+    <div class="container">
+
+        <img id="ImageChange" src="ooty.webp" alt="image of one city" length="100px" width="100px"
+            onclick="selectImage()">
+
+        <script>
+
+            var useImage = 1;
+
+            function selectImage() {
+
+                switch (useImage) {
+
+                    case 1: document.getElementById('ImageChange').src = "pondicherry.jpg";
+
+                        useImage = useImage + 1;
+
+                        break;
+
+                    case 2: document.getElementById("ImageChange").src = "tirupathi.webp";
+
+                        useImage = useImage + 1;
+
+                        break;
+
+                    case 3: document.getElementById("ImageChange").src = "ooty.webp";
+
+                        useImage = useImage + 1;
+
+                        break;
+
+                }
+
+            }
+
         </script>
 
-        
-    </body>
+    </div>
+
+
+</body>
+
 </html>

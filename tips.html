@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>form Check</title>
+</head>
+
+<body>
+    <h1>Namruth shows tip amounts</h1>
+    <h2>Getting input</h2>
+    <label for="amount">Enter base amount</label>
+    <input type="number" value=50 id="amount">
+    <label for="tippercentage">Enter the tip percent</label>
+    <input type="number" value=15 id="tippercentage">
+    <input type="button" value="Show tip" onclick="tips()">
+
+    <p id="tipsres">To put our results</p>
+
+    <script>
+
+        function tips() {
+            let baseamount = document.getElementById("amount").value;
+            let tip = document.getElementById("tippercentage").value;
+            let myOutput = "";
+            for (let k = 0; k < 5; k++) {
+                let tippercen = parseInt(tip) + (k * 4);
+                myOutput = myOutput + tippercen + '% is calculated ' + (baseamount * tippercen / 100) + '; ';
+            }
+            document.getElementById("tipsres").innerHTML = 'Tip are: ' + myOutput;
+        }
+    </script>
+    <form id="radios">
+        <input type="radio" id="rg1_red" name="tip" value="sum">
+        <label for="rg1_red">sum</label></br>
+        <input type="radio" id="rg1_blue" name="tip" value="difference">
+        <label for="rg1_blue">diff</label></br>
+        <input type="radio" id="rg1_green" name="tip" value="product">
+        <label for="rg1_green">mult</label></br>
+        <input type="button" onclick="chooseOp()" value="Get values from radio group">
+    </form>
+    <p id="radioresults">This will be replaced with radioresults</p>
+    <script>
+        function chooseOp() {
+            let basevalue = document.getElementById("amount").value;
+            let tipPercen = document.getElementById("tippercentage").value;
+            let operator = document.querySelector('input[name="tip"]:checked').value;
+            let ans;
+            switch (operator) {
+                case "sum": ans = parseInt(basevalue) + parseInt(tipPercen);
+                    break;
+                case "difference": ans = parseInt(basevalue) - parseInt(tipPercen);
+                    break;
+                case "product": ans = parseInt(basevalue) * parseInt(tipPercen);
+                    break;
+            }
+            let out = document.getElementById("radioresults")
+            out.innerHTML = operator + ' of ' + basevalue + ' and ' + tipPercen + ' is ' + ans;
+        }
+    </script>
+    <form>
+        <label for="form1_age">What is your age </label>
+        <input type="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+        <label for="form1_nick">What is your nickname </label>
+        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
+        <input type="button" onclick="resolveForm()" value="Get values from form">
+    </form>
+    <p id="result">This text will be replaced </p>
+    <script>
+        function resolveForm() {
+            console.log("Getting form values")
+            age = document.getElementById("form1_age").value
+            nick = document.getElementById("form1_nick").value
+            confirmed = confirm("Are these the values? " + age + " and " + nick)
+            out = document.getElementById("result")
+            if (confirmed) {
+                out.innerHTML = "Values were confirmed"
+            } else {
+                out.innerHTML = "Values were not confirmed"
+            }
+        }
+    </script>
+</body>
+
+</html>
