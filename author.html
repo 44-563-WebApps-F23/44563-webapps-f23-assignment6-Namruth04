@@ -5,17 +5,17 @@
     <title>Author entry</title>
 </head>
 
-<body>
-    <h1>Author entry Namruth</h1>
+<body style="font-family:'sans-serif';color:blueviolet;background-color: aquamarine;">
+    <h1 style="background-color: yellow;color:black;text-align: center;">Author entry Namruth</h1>
     <form>
         <label for="Author"> The hidden author name</label>
         <input type="password" id="Author" value="Dickens">
         <label for="Guess">Guess the author</label>
         <input type="text" id="Guess">
         <input type="button" value="Check the guess" onclick="checkAuthor()">
-        <div>Good Score:<spen id="good"></spen>
+        <div>Good Score:<span id="good"></span>
         </div>
-        <div>Oops Score:<spen id="oops"></spen>
+        <div>Oops Score:<span id="oops"></span>
         </div>
     </form>
     <script>
@@ -31,6 +31,9 @@
                 alert("You got it right!");
             }
             else {
+                if(oops>=7){
+                    alert("Sorry, ran out of guesses")
+                }
                 oops++;
                 alert("Sorry");
             }
@@ -66,7 +69,7 @@
 
                     case 3: document.getElementById("ImageChange").src = "ooty.webp";
 
-                        useImage = useImage + 1;
+                        useImage = 1;
 
                         break;
 
